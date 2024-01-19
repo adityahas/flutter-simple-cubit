@@ -20,21 +20,20 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       // (type of bloc, state)
-      body: BlocBuilder<TodoCubit, List<Todo>>(
-        builder: (context, todo) {
+      body: BlocBuilder<TodoCubit, List<Todo>>(builder: (context, todo) {
         return ListView.builder(
-          itemCount: todo.length,
-          itemBuilder: (context, index){
-            return ListTile(
-              title: Text(todo[index].title),
-              subtitle: Text(todo[index].description),
-            );
-          });
-  }
-      ),
+            itemCount: todo.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(todo[index].title),
+                subtitle: Text(todo[index].description),
+              );
+            });
+      }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const AddTodoPage()));
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const AddTodoPage()));
         },
         tooltip: 'Add todo',
         child: const Icon(Icons.add),

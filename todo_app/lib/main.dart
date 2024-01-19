@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/cubit/todo_cubit.dart';
 import 'package:todo_app/home_page.dart';
 
-void main(){
+void main() {
   runApp(const MyApp());
 }
 

@@ -10,19 +10,18 @@ class AddTodoPage extends StatefulWidget {
 }
 
 class _AddTodoPageState extends State<AddTodoPage> {
-  final TextEditingController _titleController= TextEditingController();
-  final TextEditingController _descController= TextEditingController();
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _descController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-     final todoCubit= BlocProvider.of<TodoCubit>(context);
-    return  Scaffold(
+    final todoCubit = BlocProvider.of<TodoCubit>(context);
+    return Scaffold(
       body: Container(
         margin: const EdgeInsets.all(20.0),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           TextField(
             controller: _titleController,
             decoration: const InputDecoration(
@@ -31,15 +30,15 @@ class _AddTodoPageState extends State<AddTodoPage> {
           ),
           TextField(
             controller: _descController,
-            decoration:const InputDecoration(
-              labelText: 'Enter the description'
-            ),
+            decoration:
+                const InputDecoration(labelText: 'Enter the description'),
           ),
-
-          ElevatedButton(onPressed: (){
-            todoCubit.addTodo(_titleController.text, _descController.text);
-            Navigator.of(context).pop();
-          }, child: const Text('Add Todo'))
+          ElevatedButton(
+              onPressed: () {
+                todoCubit.addTodo(_titleController.text, _descController.text);
+                Navigator.of(context).pop();
+              },
+              child: const Text('Add Todo'))
         ]),
       ),
     );
